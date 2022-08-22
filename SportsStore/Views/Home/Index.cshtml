@@ -1,4 +1,4 @@
-﻿<div class="container">
+﻿@*<div class="container">
 <form class="row g-3">
   <div class="col-md-6">
     <label for="inputEmail4" class="form-label">Email</label>
@@ -44,4 +44,15 @@
   </div>
 </form>
 
-</div>
+</div>*@
+
+
+@model IQueryable<Product>
+@foreach (var p in Model ?? Enumerable.Empty<Product>())
+{
+    <div>
+        <h3>@p.Name</h3>
+            @p.Description
+        <h4>@p.Price.ToString("c")</h4>
+    </div>
+}
